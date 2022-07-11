@@ -34,6 +34,7 @@ document.addEventListener("click", async e => {
     if(e.target.matches(".edit")){
         //EDIT
         ui.editButton(e);
+        ui.editResetButton;
     }
     if(e.target.matches(".delete")){
         //DELETE
@@ -41,5 +42,16 @@ document.addEventListener("click", async e => {
         if (isDelete) {
             ui.deleteButton(crud, e);
         }
+    }
+    if(e.target.matches(".formCancelar")){
+        //Reset Edition
+        const $form = document.querySelector(".crud-form"),
+        $title = document.querySelector(".crud-title");
+        $title.innerHTML = "Agregar Santos";
+        $form.id.value="";
+        $form.id.removeAttribute("value");
+        $form.dataOneForm.value = "";
+        $form.dataTwoForm.value = "";
+        $form.querySelector(".formCancelar").remove();
     }
 });

@@ -1,14 +1,14 @@
 {
   "Santos": [
     {
-      "id": 1,
       "nombre": "Seiya",
-      "contelacion": "Pegaso"
+      "contelacion": "Pegaso",
+      "id": 1
     },
     {
-      "id": 2,
       "nombre": "Shiryu",
-      "contelacion": "Dragón"
+      "contelacion": "Dragón",
+      "id": 2
     },
     {
       "id": 3,

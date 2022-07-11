@@ -117,6 +117,18 @@ export default class UI {
         }
     }
 
+    get editResetButton() {
+        const form = document.querySelector(".crud-form"),
+        button = document.createElement("BUTTON"),//Creo un botón para mandarlo al form
+        isButton = document.querySelector(".formCancelar");
+        if(!isButton){
+            button.setAttribute("type", "button");
+            button.setAttribute("class", "formCancelar");
+            button.innerHTML = "Cancelar";
+            form.appendChild(button);
+        }
+    }
+
     get printPage(){
         this.printBasicPage;
         //this.printTable;
