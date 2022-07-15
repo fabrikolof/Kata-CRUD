@@ -3,6 +3,8 @@ import UI from "./views/UI.js";
 const DIOSES_URL = "http://localhost:5555/Dioses";
 const SANTOS_URL = "http://localhost:5555/Santos";
 
+
+//sessionStorage
 let crud = "fetch"; //"fetch" - "axios" - "ajax"
 let ui = new UI();
 
@@ -22,9 +24,11 @@ document.addEventListener("submit", async e => {
         if(!e.target.id.value){
             //POST
             ui.post(crud, e);
+            ui.printTable(crud);
         } else {
             //Update PUT
             ui.put(crud, e);
+            ui.printTable(crud);//agregar el nuevo con un appendchild en vivo
         }
     }
 });

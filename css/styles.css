@@ -1,4 +1,45 @@
 *{
     margin: 0;
-    padding: 0;
+    padding: 3px;
 }
+
+body{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: #1E3163;
+}
+
+.container-padre {
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction:column;
+}
+
+.container-border{
+    box-shadow: 0px 0px 15px #fd0098;
+    border: 5px solid #F037A5;
+    padding: 10px;
+    background: #2D46B9;
+}
+
+h1{
+    color: #1E3163;
+}
+
+h1, h2{
+   margin: 10px;
+}
+
+h2, article {
+    color: #F8F8F8;
+}
+
+input {
+    margin-bottom: 5px;
+}
+
+/*
+.crud-form>input{
+    justify-content: center;
+} 
+*/

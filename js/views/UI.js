@@ -6,45 +6,48 @@ export default class UI {
 
     get printBasicPage(){
         const HTMLcontent = `
-        <h1>CRUD FETCH</h1>
-        <section class="crud">
-            <article>
-                <h2 class="crud-title">Agregar Santos</h2>
-                <form class="crud-form">
-                    <input type="text" name="dataOneForm" placeholder="nombre" required>
-                    <br>
-                    <input type="text" name="dataTwoForm" placeholder="constelación" required>
-                    <br>
-                    <input type="submit" value="Enviar">
-                    <input type="hidden" name="id">
-                </form>
-            </article>
-            <article>
-                <h2>Ver Santos</h2>
-                <table class="crud-table">
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Constelación</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!--
-                        <tr>
-                            <td>Seiya</td>
-                            <td>Pegaso</td>
-                            <td>
-                                <button>Editar</button>
-                                <button>Eliminar</button>
-                            </td>
-                        </tr>
-                        -->
-                    </tbody>
-                </table>
-            </article>
-        </section>
-    
+        <div class="container-padre">
+            <div class="container-border">
+                <h1>CRUD FETCH</h1>
+                <section class="crud">
+                    <article>
+                        <h2 class="crud-title">Agregar Santos</h2>
+                        <form class="crud-form">
+                            <input type="text" name="dataOneForm" placeholder="nombre" required>
+                            <br>
+                            <input type="text" name="dataTwoForm" placeholder="constelación" required>
+                            <br>
+                            <input type="submit" value="Enviar">
+                            <input type="hidden" name="id">
+                        </form>
+                    </article>
+                    <article>
+                        <h2>Ver Santos</h2>
+                        <table class="crud-table">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Constelación</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!--
+                                <tr>
+                                    <td>Seiya</td>
+                                    <td>Pegaso</td>
+                                    <td>
+                                        <button>Editar</button>
+                                        <button>Eliminar</button>
+                                    </td>
+                                </tr>
+                                -->
+                            </tbody>
+                        </table>
+                    </article>
+                </section>
+            </div>
+        </div>
         <!--TEMPLATE-->
         <template id="crud-template">
             <tr>
@@ -63,12 +66,10 @@ export default class UI {
     printTable(crud) {
         const d = document,
         $table = d.querySelector(".crud-table"),
-        $form = d.querySelector(".crud-form"),
-        $title = d.querySelector(".crud-title"),
         $template = d.getElementById("crud-template").content,
         $fragment = d.createDocumentFragment();
         if(crud === "fetch"){
-            getFetchAll($table, $form, $title, $template, $fragment);
+            getFetchAll($table, $template, $fragment);
             console.log("Se utilizó fetch para hacer el crud.")
         } else if(crud === "ajax"){
             console.log("Esta funcionalidad se encuentra en desarrollo")
@@ -79,7 +80,7 @@ export default class UI {
         }
     }
 
-    editButton(event){        
+    editButton(event){
         const d = document,
         $form = d.querySelector(".crud-form"),
         $title = d.querySelector(".crud-title");
@@ -96,6 +97,12 @@ export default class UI {
         const santo = new Santo(nombre, constelacion);
         if(crud === "fetch") {
             postFetch(santo, $table);
+        } else if(crud === "ajax"){
+            console.log("Esta funcionalidad se encuentra en desarrollo")
+            console.log("Se utilizó ajax para hacer el crud.")
+        } else if(crud === "axios"){
+            console.log("Esta funcionalidad se encuentra en desarrollo")
+            console.log("Se utilizó axios para hacer el crud.")
         }
     }
 
@@ -108,12 +115,24 @@ export default class UI {
         if(crud === "fetch") {
             putFetch(santo, id, $form);
             //this.printTable(crud);//intento de actualización de tabla sin necesidad de recargar la web
+        } else if(crud === "ajax"){
+            console.log("Esta funcionalidad se encuentra en desarrollo")
+            console.log("Se utilizó ajax para hacer el crud.")
+        } else if(crud === "axios"){
+            console.log("Esta funcionalidad se encuentra en desarrollo")
+            console.log("Se utilizó axios para hacer el crud.")
         }
     }
 
     deleteButton(crud, event) {
         if(crud === "fetch"){
             deleteFetch(event.target.dataset.id);
+        } else if(crud === "ajax"){
+            console.log("Esta funcionalidad se encuentra en desarrollo")
+            console.log("Se utilizó ajax para hacer el crud.")
+        } else if(crud === "axios"){
+            console.log("Esta funcionalidad se encuentra en desarrollo")
+            console.log("Se utilizó axios para hacer el crud.")
         }
     }
 
